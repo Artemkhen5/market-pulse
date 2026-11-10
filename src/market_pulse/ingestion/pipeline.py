@@ -11,7 +11,9 @@ def start(dataset: str, dataset_dir: Path):
         name = "olist_orders_dataset-1.csv"
         path = dataset_dir / name
         with connect_db() as conn:
-            load_orders(conn, iter_valid_orders(path))
+            loaded_count = load_orders(conn, iter_valid_orders(path))
+
+        print(f"Загружено строк в raw.orders: {loaded_count}")
 
 
 def iter_valid_orders(path: Path):
