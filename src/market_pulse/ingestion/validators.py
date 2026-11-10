@@ -33,7 +33,6 @@ class OrderRowParser:
 
     def parse_date_fields(self, key: str, value: str | None) -> None:
         if key in self.DATETIME_FIELDS and value is not None:
-
             try:
                 parsed_date = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
                 self.row[key] = parsed_date
